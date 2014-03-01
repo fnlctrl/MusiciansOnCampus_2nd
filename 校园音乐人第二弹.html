@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='UTF-8'>
+		<title>专题:校园音乐人 第二弹 - 水朝夕</title>
+		<script src='./js/jquery-2.1.0.min.js'></script>
+		<script src='./js/player.js'></script>
+		<link rel='stylesheet' href='./css/main.css'></link>
+	</head>
+	<script>
+	//定义宽度
+	$(document).ready(function() {
+		$(window).bind('load resize',function() {
+		var h = $(window).height()
+		var w = $(window).width()
+		$('#page1').width(w).height(h)
+		$('#page2').height(h)
+
+
+		$(window).scroll(function() {
+			var playerY = parseInt($("#player").css('top'))
+			$("#player").css('top', playerY + window.pageXOffset / 100)
+		});
+
+
+
+		})
+	})
+	//音乐播放器
+	$(document).ready(function() {
+		var playing = true
+		var i = 0
+		$('#player_play-pause').click(function() {
+			if (playing == true) {
+				document.getElementById('audio').pause()
+				playing = false
+				$(this).css('background','url(./svg/player_controls.svg)')
+			}
+			else {
+				document.getElementById('audio').play()
+				playing = true
+				$(this).css('background','url(./svg/player_controls.svg) -20px -1px')
+			}
+		})
+		$('#player_mute').click(function() {
+			if (document.getElementById('audio').muted == false) {
+				document.getElementById('audio').muted = true
+				$(this).css('background','url(./svg/player_controls.svg) -80px -1px')
+			}
+			else {
+				document.getElementById('audio').muted = false
+				$(this).css('background','url(./svg/player_controls.svg) -60px -1px')
+			}
+		})
+		$('#player_next').click(function() {
+			var src=[], name=[]
+			src[0] = "./mp3/最初的梦想.mp3"
+			src[1] = "./mp3/无赖.mp3"
+			src[2] = "./mp3/Spark.mp3"
+			name[0] = "最初的梦想"
+			name[1] = "无赖"
+			name[2] = "Spark"
+			i++
+			if (i>src.length-1) {
+				i=0
+			}
+			$('#audio').prop('src',src[i])
+			$('#player_songName').text(name[i])
+		})
+	})
+	</script>
+	<body>
+		<div id='page1' class='page'>
+			<embed id='svg_background' src='./svg/background.svg'/>
+			<div id='svg_titleImage'>
+				<div id='svg_title'></div>
+				<div id='svg_stripes'></div>
+				<div id='player'>
+					<embed id='svg_player_outline' src='./svg/player_outline.svg'/>
+					<embed id='svg_player_background' src='./svg/player_background.svg'>
+					<div id='player_controls'>
+						<div id='player_play-pause'></div>
+						<div id='player_next'></div>
+						<div id='player_mute'></div>
+						<div id='player_songName'>最初的梦想</div>
+						<audio id='audio' src='./mp3/最初的梦想.mp3' autoplay></audio>
+					</div>
+				</div>
+			</div>
+			<embed id='svg_logo' src='./svg/logo.svg'/>
+
+
+		</div>
+		<div id='page2' class='page'>
+			<div id='svg_page1_title'></div>
+			<div class='info'>
+				<p style='float:left'>The Reverse<br>
+				朋克乐队<br>
+				成立于2012年7月<br>
+				杭州独立厂牌<br>
+				MLGB旗下</p>
+				<p style='float:left; margin-left:20px'>
+				成员<br>
+				主唱兼吉他手 - 老管<br>
+				吉他手兼和声 - PJ <br>
+				鼓手 - 小欣<br>
+				贝斯手 - 刘奥逼<br>
+				</p>
+			</div>
+		</div>
+		<div id='page3' class='page'></div>
+		<div id='page4' class='page'></div>
+		<div id='page5' class='page'></div>
+		<div id='page6' class='page'></div>
+	</body>
+</html>
+<script>
+var RealtiveUnitsTemp = [];
+var RealtiveUnitsElms = document.querySelectorAll('link[rel=stylesheet],style,[style]');
+
+window.RelativeUnits =  (function(){
+    var API, cssRules, styledElements,
+        relativeUnitsStylesheetID = 'relative-units-stylesheet';
+
+    function trim(s) {
+        return s.replace(/^\s+|\s+$/, '');
+    };
+
+    function clean(s) {
+        return s.replace(/\/\*.*?\*\//g, ' ').replace(/\s+/g, ' ').replace(/\}\s*/g, '}\n');
+    };
+
+    function parseRule(rule) {
+        var r = trim(clean(rule)),
+            selector = r.replace(/\{.*$/, ''),
+            attrs = r.replace(/.*?\{(.*?)\}/, '$1').split(';'),
+            ret = { selector: selector, attr: attrs };
+        return ret;
+    };
+
+    function refreshRules() {
+        var s;
+        var refreshCounter = 0;
+        cssRules = [];
+        styledElements = [];
+        for(var i = 0; i < RealtiveUnitsElms.length; i++) {
+            if(RealtiveUnitsElms[i].id == relativeUnitsStylesheetID) continue;
+            switch(RealtiveUnitsElms[i].nodeName.toLowerCase()) {
+                case 'link':
+                refreshCounter++;
+                var href = RealtiveUnitsElms[i].href;
+                $.get(href, function(s){
+                    s = trim(clean(s)).split('\n');
+                    for(var j = 0; j < s.length; j++) {
+                        if(s.length > 0) {
+                            RealtiveUnitsTemp.push(s[j]);
+                        }
+                    }
+                    refreshCounter--;
+                });
+                break;
+                case 'style':
+                s = RealtiveUnitsElms[i].innerHTML;
+                s = trim(clean(s)).split('\n');
+                for(var j = 0; j < s.length; j++) {
+                    if(s.length > 0) {
+                        RealtiveUnitsTemp.push(s[j]);
+                    }
+                }
+                break;
+                default:
+                // we're dealing with a style attribute
+                styledElements.push(RealtiveUnitsElms[i]);
+                break;
+            }
+        }
+        var requestDoneCheck = setInterval(function(){
+
+            if(refreshCounter !== 0)
+	      return;
+
+            for(i = 0; i < RealtiveUnitsTemp.length; i++) {
+                if(RealtiveUnitsTemp[i].length > 0) {
+                    cssRules.push(parseRule(RealtiveUnitsTemp[i]));
+                }
+            }
+
+            updateCSS();
+            clearInterval(requestDoneCheck);
+        }, 10);
+    };
+
+    function updateCSS() {
+        var stylesheet = '',
+            oldStyle = document.querySelectorAll('style#' + relativeUnitsStylesheetID),
+            newStylesheet = null,
+            i, j, a, v, n, d, styleProp, newProps, key, value;
+
+        for(i = 0; i < cssRules.length; i++) {
+            for(j = 0; j < cssRules[i].attr.length; j++) {
+                a = cssRules[i].attr[j];
+                v = a.match(/^(.*):(.*)$/);
+
+                if(v != null) {
+                    key = v[1];
+                    value = v[2];
+
+                    if(!value.match(/.*(vw|vh|vm).*/))
+                      continue;
+
+                    // replace-regexp
+                    var result = value.replace(/-*[0-9.]*[ ]*(vm|vh|vw)/g, function(arg) {
+
+                        var x = arg.match(/(-)*([0-9.]*)[ ]*(vm|vh|vw)/);
+                        n = parseFloat(x[2]);
+                        switch(x[3]) {
+                            case 'vw':
+                            d = document.documentElement.clientWidth;
+                            break;
+                            case 'vh':
+                            d = document.documentElement.clientHeight;
+                            break;
+                            case 'vm':
+                            d = Math.min(document.documentElement.clientWidth , document.documentElement.clientHeight);
+                            break;
+                        }
+                        var x1 = x[1] ? x[1] : '';
+
+                        // 前后的空格是为了防止出乱子
+                        return ' '+ x1 + (n * d) / 100 + 'px ';
+                    });
+
+                    result = key+':'+result+';';
+
+                    // 替换多余空格（英语捉急）
+                    result = result.replace(/ ;/g, ';');
+                    result = result.replace(/  /g, ' ');
+
+                    stylesheet += cssRules[i].selector + ' {'+ result +'}\n';
+
+                }
+            }
+        }
+        if(oldStyle != null) {
+            for(i = 0; i < oldStyle.length; i++) {
+                oldStyle[i].parentNode.removeChild(oldStyle[i]);
+            }
+        }
+
+        newStylesheet = document.createElement('style');
+        newStylesheet.id = relativeUnitsStylesheetID;
+        newStylesheet.innerHTML = stylesheet;
+        document.querySelector('head').appendChild(newStylesheet);
+    };
+
+    refreshRules();
+    window.addEventListener('resize', function() { refreshRules(); });
+
+    return {
+        update: refreshRules,
+        recalculate: updateCSS
+    };
+}());
+</script>
