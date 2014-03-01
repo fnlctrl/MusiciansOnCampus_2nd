@@ -16,10 +16,15 @@
 		$('#page1').width(w).height(h)
 		$('#page2').height(h)
 
-
+		var playerInitialTop = parseInt($('#svg_titleImage').css('top')) + 393
+		$('#player').css('top',playerInitialTop)
 		$(window).scroll(function() {
-			var playerY = parseInt($("#player").css('top'))
-			$("#player").css('top', playerY + window.pageXOffset / 100)
+			if ( playerInitialTop + $(window).scrollLeft() / 5 < h - 100) {
+				$("#player").css('top', playerInitialTop + $(window).scrollLeft() / 5 )
+			}
+			else {
+				$("#player").css('top',h-100)
+			}
 		});
 
 
@@ -76,6 +81,7 @@
 				<div id='svg_title'></div>
 				<div id='svg_stripes'></div>
 				<div id='player'>
+
 					<embed id='svg_player_outline' src='./svg/player_outline.svg'/>
 					<embed id='svg_player_background' src='./svg/player_background.svg'>
 					<div id='player_controls'>
@@ -85,6 +91,7 @@
 						<div id='player_songName'>最初的梦想</div>
 						<audio id='audio' src='./mp3/最初的梦想.mp3' autoplay></audio>
 					</div>
+
 				</div>
 			</div>
 			<embed id='svg_logo' src='./svg/logo.svg'/>
