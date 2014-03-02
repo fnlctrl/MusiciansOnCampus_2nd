@@ -10,51 +10,48 @@
 	<script>
 	//定义宽度
 	$(document).ready(function() {
-		$(window).bind('load resize',function() {
+		$(window).bind('load resize scroll',function() {
 		var h = $(window).height()
 		var w = $(window).width()
-		$('#page1').width(w).height(h)
-		$('#page2').height(h)
+		$('.page').height(h)
+		$('#page0').width(w)		
+		$('.pageContent, .col').height(h - 60)
 
 		var playerInitialTop = parseInt($('#svg_titleImage').css('top')) + 393
+		var playerTopDelta = $(window).scrollLeft() / 2.5
 		$('#player').css('top',playerInitialTop)
-		$(window).scroll(function() {
-			if ( playerInitialTop + $(window).scrollLeft() / 5 < h - 100) {
-				$("#player").css('top', playerInitialTop + $(window).scrollLeft() / 5 )
-			}
-			else {
-				$("#player").css('top',h-100)
-			}
-		});
-
-
-
+		if ( playerInitialTop + playerTopDelta < h - 100) {
+			$("#player").css('top', playerInitialTop + playerTopDelta )
+		}
+		else {
+			$("#player").css('top',h-100)
+		}
 		})
 	})
 	//音乐播放器
 	$(document).ready(function() {
 		var playing = true
 		var i = 0
-		$('#player_play-pause').click(function() {
+		$('#playerPlayPause').click(function() {
 			if (playing == true) {
 				document.getElementById('audio').pause()
 				playing = false
-				$(this).css('background','url(./svg/player_controls.svg)')
+				$(this).css('background','url(./img/playerControls.svg)')
 			}
 			else {
 				document.getElementById('audio').play()
 				playing = true
-				$(this).css('background','url(./svg/player_controls.svg) -20px -1px')
+				$(this).css('background','url(./img/playerControls.svg) -20px -1px')
 			}
 		})
 		$('#player_mute').click(function() {
 			if (document.getElementById('audio').muted == false) {
 				document.getElementById('audio').muted = true
-				$(this).css('background','url(./svg/player_controls.svg) -80px -1px')
+				$(this).css('background','url(./img/playerControls.svg) -80px -1px')
 			}
 			else {
 				document.getElementById('audio').muted = false
-				$(this).css('background','url(./svg/player_controls.svg) -60px -1px')
+				$(this).css('background','url(./img/playerControls.svg) -60px -1px')
 			}
 		})
 		$('#player_next').click(function() {
@@ -75,44 +72,118 @@
 	})
 	</script>
 	<body>
-		<div id='page1' class='page'>
-			<embed id='svg_background' src='./svg/background.svg'/>
+		<div id='page0' class='page'>
+			<embed id='svg_background' src='./img/background.svg'/>
 			<div id='svg_titleImage'>
 				<div id='svg_title'></div>
 				<div id='svg_stripes'></div>
 				<div id='player'>
-
-					<embed id='svg_player_outline' src='./svg/player_outline.svg'/>
-					<embed id='svg_player_background' src='./svg/player_background.svg'>
-					<div id='player_controls'>
-						<div id='player_play-pause'></div>
+					<embed id='playerOutline' src='./img/playerOutline.svg'/>
+					<embed id='player_background' src='./img/player_background.svg'>
+					<div id='playerControls'>
+						<div id='playerPlayPause'></div>
 						<div id='player_next'></div>
 						<div id='player_mute'></div>
 						<div id='player_songName'>最初的梦想</div>
 						<audio id='audio' src='./mp3/最初的梦想.mp3' autoplay></audio>
 					</div>
-
 				</div>
 			</div>
-			<embed id='svg_logo' src='./svg/logo.svg'/>
-
-
+			<embed id='svg_logo' src='./img/logo.svg'/>
+		</div>
+		<div id='page1' class='page'>
+			<div class='intro'>
+			“我们出生在中国知识分子最热血的年代，却成长于最无聊的时代。
+			我们只是想找点乐子，麻痹我们的愤怒。
+			我们只是想唱唱小曲，喝点小酒，吹吹牛逼。
+			我们来自地下，潜伏在这个像垃圾堆一样的社会中。
+			这种充满低级趣味的生活，让我们感到自在，我们为此自豪。”——PJ
+			<br><br><br>
+			<p>这次采访的对象是朋克乐队The Reverse的主唱管骨头。</p><p>
+			这个来自中国美院的音乐人，少了学生的稚气，却含着一股江湖味，非要唱出十二分气力不可。</p><p>
+			对于他、对于其他乐队成员，等老去之时再回望玩朋克的这段青春年华，那必会成为行将枯淡的人生中一道隐秘的奇观。</p><p>
+			</div>
 		</div>
 		<div id='page2' class='page'>
-			<div id='svg_page1_title'></div>
-			<div class='info'>
-				<p style='float:left'>The Reverse<br>
-				朋克乐队<br>
-				成立于2012年7月<br>
-				杭州独立厂牌<br>
-				MLGB旗下</p>
-				<p style='float:left; margin-left:20px'>
-				成员<br>
-				主唱兼吉他手 - 老管<br>
-				吉他手兼和声 - PJ <br>
-				鼓手 - 小欣<br>
-				贝斯手 - 刘奥逼<br>
-				</p>
+			<div class='pageContent'>
+			<div class='col'>
+				<div id='svg_page2_title'></div>
+				<div class='info'>
+					<span style='float:left'>The Reverse<br>
+					朋克乐队<br>
+					成立于2012年7月<br>
+					杭州独立厂牌<br>
+					MLGB旗下</span>
+					<span style='float:left; margin-left:20px'>
+					成员<br>
+					主唱兼吉他手 - 老管<br>
+					吉他手兼和声 - PJ <br>
+					鼓手 - 小欣<br>
+					贝斯手 - 刘奥逼<br>
+					</span>
+					<span style='float:left'>
+					<br>
+					豆瓣　<a href='http://site.douban.com/thereverse/'>The Reverse</a><br>
+					　　　<a href='http://www.douban.com/people/55450824/'>管骨头</a><br>
+					虾米　<a href='http://i.xiami.com/the_reverse'>The Reverse</a><br>
+					</span>
+				</div>
+			</div>
+			<div class='article'>
+				<h2>关于演出</h2></p><p>
+				<h3>自己最难忘的一次演出经历</h3></p><p>
+				大一的时候有一次在学校演出，那个时候我还不是THE REVERSE的成员，那时候我是半天噩运的主唱。那时候技术还很烂，然后在学校操场上办了一场演出。设备也是我们自己搞的，而且是超烂的设备；台子也没有，灯光用的是车灯，就是一圈人围那儿，里三层外三层的。</p><p>
+				那次简直就是一个PARTY。因为实在太噪了，演出似乎已经不重要了。</p><p>
+				虽然从技术层面来讲是相当的烂。但就是一大群人在那儿玩，那是真的爽。</p><p>
+
+				<h3>最近参加的演出</h3></p><p>
+				最近的那个应该是在美院办的那个“一起燎原吗宝贝”。这个太酷了，因为是我们自己办的演出，设备什么都是我们自己弄来的，连外扩都没有，在小场子里演。因为束缚少，所以演的非常爽，还有一种DIY的快感。观众也非常给力！</p><p>
+
+				Q：听说门票是男性1元，女性倒贴1元 ?</p><p>
+				A:是的.结果我们亏了,而且亏大了。</p><p>
+				Q:能再讲讲这次演出上的事吗？有什么特别值得分享的故事？</p><p>
+				A:那次演出的时候台下来了一个当代艺术家,他拿了把装满了自己的尿的水枪在那儿喷人。</p><p>
+				其实我没想到那次演出下面的人能玩的这么开，在我印象中现在美院里大多数人都是自己管自己的那种，在学校里老师强调的都是让你怎么高端洋气上档次，像我们这种东西就是下三滥。以前的美院是这样的，现在不同了，现在美院里的人大多数都很乖。让他们去看元旦演出估计比来看朋克演出更兴奋。</p><p>
+
+				<h2>关于The reverse</h2></p><p>
+				<h3>REVERSE的开始</h3></p><p>
+				REVERSE组成最初的目的就是为了参加虎牌啤酒乐队龙虎榜这个比赛。后来觉得我们三个人挺合适。那时候还没有刘奥比。拿了冠军后还去上海演了，去上海演了以后才发现杭州以外的乐队是多牛逼。其他城市的乐队之所以牛逼是因为他们玩音乐很投入而且很坚持，杭州的乐队缺的是坚持和野心。</p><p>
+
+				<h3>乐队成员</h3></p><p>
+				首先是刘奥比，这名字比较奥比，原名刘子豪，刚加入我们乐队大概5个月左右。这家伙比较喜欢玩，而且很热衷于OLDSCHOOL的东西，属于我们乐队比较活跃的一个人。</p><p>
+				PJ和小欣都是上班族，工作压力大，工作压力大了自然有很多情绪要宣泄，这也是他们喜欢朋克的原因。</p><p>
+				PJ是我们乐队的核心人物，词的创作基本上是他来弄的，他以前是学文学的，对摇滚乐理解颇深，而且是个愤青，以前给很多音乐杂志写过稿，现在在虾米工作</p><p>
+				小欣是我们乐队年纪最大的，但情绪比较简单，开心了就笑个不停，不爽了就摆在脸上。</p><p>
+
+				<h2>关于管骨头</h2></p><p>
+				<h3>最开始喜欢的歌手或者乐队</h3></p><p>
+				因为我爸也听摇滚，所以我小时候就经常听猫王、BEATLES、ERIC CLAPTON这些。</p><p>
+				我最早接触到朋克是GREEN DAY。虽然现在听起来挺一般的，但那时候觉得特别屌。</p><p>
+				那时候我不知道朋克是什么东西，我还以为是重金属，后来才发现是不一样的</p><p>
+
+				<h3>特别影响到你的歌手或者乐队</h3></p><p>
+				太多了。性手枪、THE CLASH、雷蒙斯，这三个就不用说了，个个都很喜欢。然后是RANCID 也非常不错。之前还尝试过街头朋克，就是受THE UNSEEN和THE CASUALTIES的影响。硬核里面喜欢BLACK FLAG，尤其是喜欢BLACK FLAG的设计</p><p>
+
+				<h3>转塘大鸡腿</h3></p><p>
+				Q：是什么乐队让你决定性的开始玩朋克呢？</p><p>
+				A：转塘大鸡腿！这个故事是这样的，当年的转塘大鸡腿是杭七中高三的三个人组建的，比我小一届。他们第一次演出叫我去看，我发现他们的技术是在太烂了。然后我说：“我来给你们弹吉他吧！”然后我就开始玩朋克了。</p><p>
+				这支乐队真的太棒了。可以说是他们把我培养成了一个朋克乐手。好棒的感觉！</p><p>
+
+				<h3>喜欢上朋克的原因</h3></p><p>
+				首先朋克是一个讲究真实的音乐；第二朋克是一种带来欢乐的音乐；第三从艺术的角度讲，朋克是摇滚乐的精髓。</p><p>
+				音乐是最抽象的艺术形式，朋克在音乐里又是最抽象的一种表现方式，反正我是这么觉得的。</p><p>
+
+				</p><p>
+				<h3>朋克这个东西</h3></p><p>
+				Q:你现在觉得以后你还能继续坚持玩朋克吗？</p><p>
+				A:能啊！但是可能会稍稍改变一下，不可能一成不变。我发现如果一直玩OLD SCHOOL PUNK 听觉上会有疲劳，而且创新也不够。</p><p>
+
+				Q:以后会把玩音乐当本行还是当兴趣呢？</p><p>
+				A:兴趣。当本行的话就会有经济上的压力，做出来的东西就不纯粹了。你看我们现在的很多歌其实是上不了大台面的。假如我当成职业了，那哪天我不想玩了还得玩，然后我就会对这东西很厌恶</p><p>
+
+				Q: 讲讲之后the reverse的计划吧。</p><p>
+				A: 先出个EP，然后走出杭州。</p><p>
+			</div>
 			</div>
 		</div>
 		<div id='page3' class='page'></div>
