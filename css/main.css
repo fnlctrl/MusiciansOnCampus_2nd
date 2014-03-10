@@ -1,6 +1,10 @@
 /* Main */
 * {
 	overflow: visible;
+	-moz-transform-origin: 0 0; /* Firefox */
+	-webkit-transform-origin: 0 0; /* Safari and Chrome */
+	transform-origin: 0 0;
+
 }
 body {
 	min-height: 600px;
@@ -19,14 +23,16 @@ h2 {
 }
 .page {
 	float: left;
-	min-height: 600px;
+	display: inline-block;
 }
 .pageContent {
 	float:left;
+	display: inline-block;
 	padding: 5vh 5vh 5vh 100px;
 }
 .info {
 	float: left;
+	display: inline-block;
 	margin: 0 0 0 50px;
 	font-size: 14px;
 }
@@ -40,7 +46,7 @@ h2 {
 	z-index: -1;
 }
 .article {
-	float:left;
+	float: left;
 	display: inline-block;
 	font-size: 14px;
 	height: 480px;
@@ -50,9 +56,6 @@ h2 {
 	-moz-column-width:300px; /* Firefox */
 	-webkit-column-width:300px; /* Safari and Chrome */
 	column-width:300px;
-	-moz-transform-origin: 0 0; /* Firefox */
-	-webkit-transform-origin: 0 0; /* Safari and Chrome */
-	transform-origin: 0 0;
 	transition: 0.1s all ease-out;
 }
 /* Content */
@@ -69,6 +72,8 @@ h2 {
 	background: #FFD3C0;
 }
 #page0 {
+	float: left;
+	display:inline-block;
 	position: relative;
 	overflow: hidden;
 	z-index: 0;
@@ -81,7 +86,6 @@ h2 {
 	margin: 0 0 0 -125px;
 	position: fixed;
 	z-index: 10;
-	transition: 0.05s all ease-out;
 }
 #playerControls {
 	margin-top: 5.5%;
@@ -135,7 +139,6 @@ h2 {
 	z-index: 10;
 	left: 50%;
 	margin: 0 0 0 -90px;
-	top: 92vh;
 }
 .nav {
 	margin: 3px;
