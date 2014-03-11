@@ -30,42 +30,6 @@ $(document).ready(function() {
 			$img.replaceWith($svg);
 		}, 'xml');
 	});
-	//
-	$(window).bind('load resize scroll',function() {
-		window.h = $(window).height()
-		window.w = $(window).width()
-		$('.page').height(h)
-		$('.pageContent').height(0.9*h)
-		$('#page0').width(w).height(h)
-
-		var scale = h/650
-		$('.article').css('-webkit-transform','scale('+scale+')')
-		$('#nav').css('top',h-50)
-			$('.pageContent[scale=true]').each(function () {
-				var imgWidth = $(this).find('img').first().outerWidth(true)
-				var articleWidth = $(this).find('.article').first().outerWidth(true)
-				$(this).width(imgWidth+articleWidth*scale+1000*scale)
-			})
-		//是否显示左箭头
-		if ($(window).scrollLeft() > window.w-10 ) {
-			$('#svg_arrowLeft').show()
-		}
-		else {
-			$('#svg_arrowLeft').hide()
-		}
-		//检测页面位置
-		window.anchor = []
-		anchor[0]=0
-		for (var i=0,len=$('.page').length;i<len;i++) {
-			anchor.push($('.page').eq(i).offset().left)
-		}
-		for (var i=0,len=$('.page').length;i<len;i++) {
-			if ( ($(window).scrollLeft() < 	anchor [i+1] + 1) & ($(window).scrollLeft() > anchor[i] -1)) {
-				window.currentPage = i
-			}
-			console.log(window.currentPage)
-		}
-	})
 	//滚动页面
 	$('#svg_arrowRight').click(function() {
 		$('html body').animate({scrollLeft:anchor[currentPage+1]},500)
@@ -78,6 +42,7 @@ $(document).ready(function() {
 		console.log(window.currentPage)
 	})
 	//导航栏
+	
 })
 //播放器移动
 $(window).bind('load scroll resize',function() {
@@ -93,48 +58,40 @@ $(window).bind('load scroll resize',function() {
 	else {
 		$("#player").css('top',window.h-110)
 	}
-
 })
-//音乐播放器
-$(document).ready(function() {
-	var playing = true
-	var i = 0
-	document.getElementById('audio').volume = 0
-	$('#playerPlayPause').click(function() {
-		if (playing == true) {
-			document.getElementById('audio').pause()
-			playing = false
-			$(this).css('background','url(./img/playerControls.svg)')
+//自适应高度
+$(window).bind('load resize scroll',function() {
+	window.h = $(window).height()
+	window.w = $(window).width()
+	$('.page').height(h)
+	$('.pageContent').height(0.9*h)
+	$('#page0').width(w).height(h)
+	$('.intro').height(0.8*h)
+	var scale = h/650
+//		$('.article').css('-webkit-transform','scale('+scale+')')
+	$('#nav').css('top',h-50)
+//			$('.pageContent[scale=true]').each(function () {
+//				var imgWidth = $(this).find('img').first().outerWidth(true)
+//				var articleWidth = $(this).find('.article').first().outerWidth(true)
+//				$(this).width(imgWidth+articleWidth*scale+1000*scale)
+//			})
+	//是否显示左箭头
+	if ($(window).scrollLeft() > window.w-10 ) {
+		$('#svg_arrowLeft').show()
+	}
+	else {
+		$('#svg_arrowLeft').hide()
+	}
+	//检测页面位置
+	window.anchor = []
+	anchor[0]=0
+	for (var i=0,len=$('.page').length;i<len;i++) {
+		anchor.push($('.page').eq(i).offset().left)
+	}
+	for (var i=0,len=$('.page').length;i<len;i++) {
+		if ( ($(window).scrollLeft() < 	anchor [i+1] + 1) & ($(window).scrollLeft() > anchor[i] -1)) {
+			window.currentPage = i
 		}
-		else {
-			document.getElementById('audio').play()
-			playing = true
-			$(this).css('background','url(./img/playerControls.svg) -20px -1px')
-		}
-	})
-	$('#playerMute').click(function() {
-		if (document.getElementById('audio').muted == false) {
-			document.getElementById('audio').muted = true
-			$(this).css('background','url(./img/playerControls.svg) -80px -1px')
-		}
-		else {
-			document.getElementById('audio').muted = false
-			$(this).css('background','url(./img/playerControls.svg) -60px -1px')
-		}
-	})
-	$('#playerNext').click(function() {
-		var src=[], name=[]
-		src[0] = "./mp3/最初的梦想.mp3"
-		src[1] = "./mp3/无赖.mp3"
-		src[2] = "./mp3/Spark.mp3"
-		name[0] = "最初的梦想"
-		name[1] = "无赖"
-		name[2] = "Spark"
-		i++
-		if (i>src.length-1) {
-			i=0
-		}
-		$('#audio').prop('src',src[i])
-		$('#playerSongName').text(name[i])
-	})
+		console.log(window.currentPage)
+	}
 })

@@ -4,19 +4,15 @@
 	-moz-transform-origin: 0 0; /* Firefox */
 	-webkit-transform-origin: 0 0; /* Safari and Chrome */
 	transform-origin: 0 0;
-
 }
 body {
 	min-height: 600px;
 	margin: 0;
-	width: 30000px;
+	width: -webkit-max-content;
+	width: -moz-max-content;
 	font-family: 'Microsoft YaHei';
 	overflow-y: hidden;
 	opacity: 0
-}
-p {
-	text-indent: 2em;
-	margin: 0;
 }
 h2 {
 	font-family: 'Microsoft Yahei';
@@ -49,7 +45,7 @@ h2 {
 	float: left;
 	display: inline-block;
 	font-size: 14px;
-	height: 480px;
+	height: 450px;
 	-moz-column-gap:40px; /* Firefox */
 	-webkit-column-gap:40px; /* Safari and Chrome */
 	column-gap:40px;
@@ -70,6 +66,9 @@ h2 {
 }
 #intro4 {
 	background: #FFD3C0;
+}
+#intro5 {
+	background: #B0FFD5;
 }
 #page0 {
 	float: left;
@@ -151,16 +150,16 @@ h2 {
 	fill: #2980B9;
 }
 #nav2 path {
-	fill: #EA2E49;
+	fill: #39B54A;
 }
 #nav3 path {
-	fill: #39B54A;
+	fill: #EA2E49;
 }
 #nav4 path {
 	fill: #C24704;
 }
 #nav5 path {
-	fill: #FF8900;
+	fill: #00994C;
 }
 /* SVGs */
 #svg_background {
