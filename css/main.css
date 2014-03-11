@@ -133,33 +133,57 @@ h2 {
 	z-index: -2;
 }
 /* Nav */
-#nav {
+#navContainer {
 	position: fixed;
 	z-index: 10;
 	left: 50%;
-	margin: 0 0 0 -90px;
+	margin: 0 0 0 -110px;
 }
 .nav {
-	margin: 3px;
-	z-index: 1;
+	float: left;
+	display: inline-block;
+	margin: 5px;
+	width: 17px;
+	height: 17px;
+	border-radius: 1000px;
+	border: solid 4px;
+	transition: all 0.1s ease-in-out;
 }
-#nav0 path {
-	fill: #EA2E49;
+#nav0 {
+	border-color: rgba(230, 6, 124, 1);
 }
-#nav1 path {
-	fill: #2980B9;
+#nav0:hover {
+	background: rgba(230, 6, 124, 1);
 }
-#nav2 path {
-	fill: #39B54A;
+#nav1 {
+	border-color: rgba(41, 128, 185, 1);
 }
-#nav3 path {
-	fill: #EA2E49;
+#nav1:hover {
+	background: rgba(41, 128, 185, 1);
 }
-#nav4 path {
-	fill: #C24704;
+#nav2 {
+	border-color: rgba(57, 181, 74, 1);
 }
-#nav5 path {
-	fill: #00994C;
+#nav2:hover {
+	background: rgba(57, 181, 74, 1);
+}
+#nav3 {
+	border-color: rgba(234, 46, 73, 1);
+}
+#nav3:hover {
+	background: rgba(234, 46, 73, 1);
+}
+#nav4 {
+	border-color: rgba(194, 71, 4, 1);
+}
+#nav4:hover {
+	background: rgba(194, 71, 4, 1);
+}
+#nav5 {
+	border-color: rgba(0, 153, 76, 1);
+}
+#nav5:hover {
+	background: rgba(0, 153, 76, 1);
 }
 /* SVGs */
 #svg_background {
