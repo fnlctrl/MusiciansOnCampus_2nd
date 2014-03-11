@@ -50,7 +50,7 @@ $(document).ready(function() {
 		//检测导航栏当前值
 		$('.nav').each(function() {
 			if ( window.currentGroup == $(this).attr('data') ) {
-				var rgb = $(this).css('border-color').match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+				var rgb = $(this).css('border-top-color').match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
 				$(this).css('background-color','rgb('+rgb[1]+','+rgb[2]+','+rgb[3]+')')
 			}
 			else {
