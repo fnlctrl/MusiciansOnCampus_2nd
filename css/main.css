@@ -89,7 +89,7 @@ h2 {
 	left: 50%;
 	margin: 0 0 0 -125px;
 	position: fixed;
-	z-index: 1;
+	z-index: 10;
 }
 #playerControls {
 	margin-top: 5.5%;
