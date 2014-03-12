@@ -8,8 +8,8 @@
 body {
 	min-height: 600px;
 	margin: 0;
-	width: -webkit-max-content;
-	width: -moz-max-content;
+	width: 24000px;
+	min-width: 24000px;
 	font-family: 'Microsoft YaHei';
 	overflow-y: hidden;
 	opacity: 0
@@ -150,40 +150,40 @@ h2 {
 	transition: all 0.1s ease-in-out;
 }
 #nav0 {
-	border-color: rgba(230, 6, 124, 1);
+	border-color: rgb(230, 6, 124);
 }
 #nav0:hover {
-	background: rgba(230, 6, 124, 1);
+	background: rgb(230, 6, 124);
 }
 #nav1 {
-	border-color: rgba(41, 128, 185, 1);
+	border-color: rgb(41, 128, 185);
 }
 #nav1:hover {
-	background: rgba(41, 128, 185, 1);
+	background: rgb(41, 128, 185);
 }
 #nav2 {
-	border-color: rgba(57, 181, 74, 1);
+	border-color: rgb(57, 181, 74);
 }
 #nav2:hover {
-	background: rgba(57, 181, 74, 1);
+	background: rgb(57, 181, 74);
 }
 #nav3 {
-	border-color: rgba(234, 46, 73, 1);
+	border-color: rgb(234, 46, 73);
 }
 #nav3:hover {
-	background: rgba(234, 46, 73, 1);
+	background: rgb(234, 46, 73);
 }
 #nav4 {
-	border-color: rgba(194, 71, 4, 1);
+	border-color: rgb(194, 71, 4);
 }
 #nav4:hover {
-	background: rgba(194, 71, 4, 1);
+	background: rgb(194, 71, 4);
 }
 #nav5 {
-	border-color: rgba(0, 153, 76, 1);
+	border-color: rgb(0, 153, 76);
 }
 #nav5:hover {
-	background: rgba(0, 153, 76, 1);
+	background: rgb(0, 153, 76);
 }
 /* SVGs */
 #svg_background {

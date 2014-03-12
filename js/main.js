@@ -74,16 +74,16 @@ $(document).ready(function() {
 	//导航栏
 	$('.nav').click(function() {
 		var destination = $(this).attr('data')
-		$('html body').animate({scrollLeft:navAnchor[destination]},500)
+		$(window).animate({scrollLeft:navAnchor[destination]},500)
 	})
 	//左右方向按钮
 	$('#svg_arrowRight').click(function() {
-		$('html body').animate({scrollLeft:anchor[currentPage+1]},500)
+		$(window).animate({scrollLeft:anchor[currentPage+1]},500)
 		currentPage ++
 		console.log(window.currentPage)
 	})
 	$('#svg_arrowLeft').click(function() {
-		$('html body').animate({scrollLeft:anchor[currentPage-1]},500)
+		$(window).animate({scrollLeft:anchor[currentPage-1]},500)
 		currentPage --
 		console.log(window.currentPage)
 	})
@@ -110,7 +110,11 @@ $(document).ready(function() {
 			$img.replaceWith($svg);
 		}, 'xml');
 	});
+try {
 
+} catch(e) {
+	console.log(e)
+}
 
 
 
