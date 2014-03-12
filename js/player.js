@@ -1,7 +1,16 @@
 $(document).ready(function() {
-	var playing = true
-	var i = 0
-	document.getElementById('audio').volume = 0
+	window.playing = true
+	window.currentTrack = 0
+	document.getElementById('audio').volume = 0.2
+	
+	window.mp3=[]
+	window.musicTitle=[]
+	mp3[0] = "./mp3/最初的梦想.mp3"
+	mp3[1] = "./mp3/无赖.mp3"
+	mp3[2] = "./mp3/Spark.mp3"
+	musicTitle[0] = "最初的梦想"
+	musicTitle[1] = "无赖"
+	musicTitle[2] = "Spark"
 	$('#playerPlayPause').click(function() {
 		if (playing == true) {
 			document.getElementById('audio').pause()
@@ -25,18 +34,21 @@ $(document).ready(function() {
 		}
 	})
 	$('#playerNext').click(function() {
-		var src=[], name=[]
-		src[0] = "./mp3/最初的梦想.mp3"
-		src[1] = "./mp3/无赖.mp3"
-		src[2] = "./mp3/Spark.mp3"
-		name[0] = "最初的梦想"
-		name[1] = "无赖"
-		name[2] = "Spark"
-		i++
-		if (i>src.length-1) {
-			i=0
+		currentTrack++
+		if (currentTrack>mp3.length-1) {
+			currentTrack=0
 		}
-		$('#audio').prop('src',src[i])
-		$('#playerSongName').text(name[i])
+		$('#audio').prop('src',mp3[currentTrack])
+		$('#playerSongName').text(window.musicTitle[currentTrack])
+	})
+	$(window).bind('load resize scroll', function() {
+		if (document.getElementById('audio').paused == true) {
+			window.playing = false
+			$('#playerPlayPause').css('background','url(./img/playerControls.svg)')
+		}
+		else {
+			window.playing = true
+			$('#playerPlayPause').css('background','url(./img/playerControls.svg) -20px -1px')
+		}
 	})
 })
