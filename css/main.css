@@ -8,8 +8,8 @@
 body {
 	min-height: 600px;
 	margin: 0;
-	width: 24000px;
-	min-width: 24000px;
+	width: 24600px;
+	min-width: 24600px;
 	font-family: 'Microsoft YaHei';
 	overflow-y: hidden;
 	opacity: 0
@@ -216,6 +216,7 @@ h2 {
 #logo {
 	margin: 20px;
 	position: absolute;
+	left: 0;
 	z-index: 10;
 }
 #logo:hover path {
