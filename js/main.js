@@ -6,14 +6,15 @@ $(document).ready(function() {
 		$('.page').height(h)
 		$('.pageContent').height(0.9*h)
 		$('.intro').height(0.8*h)
-		$('#page0').width(w).height(h)
+		$('#page0').width(w)
+		$('#background').width(w)
 		$('#navContainer').css('top',h-50)
 		$('#background').height(h)
 		var bodyWidth = 0
 		$('.page').each(function() {
 			bodyWidth += $(this).outerWidth()
 		})
-		$('body').width(bodyWidth)
+		$('body').width(bodyWidth+10)
 		console.log(bodyWidth)
 		//播放器移动
 		var playerInitialTop = parseInt($('#titleImage').css('top')) + 393
