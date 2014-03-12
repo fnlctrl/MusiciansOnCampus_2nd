@@ -8,8 +8,7 @@
 body {
 	min-height: 600px;
 	margin: 0;
-	width: 24600px;
-	min-width: 24600px;
+	min-width: 22000px;
 	font-family: 'Microsoft YaHei';
 	overflow-y: hidden;
 	opacity: 0
@@ -76,6 +75,11 @@ h2 {
 	position: relative;
 	overflow: hidden;
 	z-index: 0;
+}
+#ending {
+	width: 400px;
+	background: url(../img/background.svg);
+	overflow: hidden;
 }
 /* Player */
 #player {

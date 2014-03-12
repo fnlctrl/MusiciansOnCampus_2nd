@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$(window).bind('load resize scroll',function() {
-		//自适应高度
+		//自适应宽高
 		window.h = $(window).height()
 		window.w = $(window).width()
 		$('.page').height(h)
@@ -9,6 +9,12 @@ $(document).ready(function() {
 		$('#page0').width(w).height(h)
 		$('#navContainer').css('top',h-50)
 		$('#background').height(h)
+		var bodyWidth = 0
+		$('.page').each(function() {
+			bodyWidth += $(this).outerWidth()
+		})
+		$('body').width(bodyWidth)
+		console.log(bodyWidth)
 		//播放器移动
 		var playerInitialTop = parseInt($('#titleImage').css('top')) + 393
 		var playerTopDelta = $(window).scrollLeft() / 2.5
@@ -53,7 +59,6 @@ $(document).ready(function() {
 				$(this).css('background-color','')
 			}
 		})
-		console.log(window.currentPage+"　"+window.currentGroup)
 		//切换BGM
 		if (window.currentGroup==0){
 			if (window.currentTrack!=0) {
@@ -85,6 +90,7 @@ $(document).ready(function() {
 				$('#playerSongName').text(window.musicTitle[currentTrack])
 			}
 		}
+		//
 	})
 	//加载动画
 	$(window).bind('load',function() {

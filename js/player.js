@@ -1,5 +1,14 @@
+$(window).bind('load resize scroll', function() {
+	if (document.getElementById('audio').paused == true) {
+		window.playing = false
+		$('#playerPlayPause').css('background','url(./img/playerControls.svg)')
+	}
+	else {
+		window.playing = true
+		$('#playerPlayPause').css('background','url(./img/playerControls.svg) -20px -1px')
+	}
+})
 $(document).ready(function() {
-	window.playing = true
 	window.currentTrack = 0
 	document.getElementById('audio').volume = 0.2
 	
@@ -40,15 +49,5 @@ $(document).ready(function() {
 		}
 		$('#audio').prop('src',mp3[currentTrack])
 		$('#playerSongName').text(window.musicTitle[currentTrack])
-	})
-	$(window).bind('load resize scroll', function() {
-		if (document.getElementById('audio').paused == true) {
-			window.playing = false
-			$('#playerPlayPause').css('background','url(./img/playerControls.svg)')
-		}
-		else {
-			window.playing = true
-			$('#playerPlayPause').css('background','url(./img/playerControls.svg) -20px -1px')
-		}
 	})
 })
