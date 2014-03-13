@@ -67,12 +67,12 @@ $(document).ready(function() {
 			navAnchor.push($('.intro').eq(i).offset().left)
 		}
 		for (var i=0,len=anchor.length;i<len;i++) {
-			if ($(window).scrollLeft() > anchor[i]-10) {
+			if ($(window).scrollLeft() > anchor[i]-20) {
 				window.currentPage = i
 			}
 		}
 		for (var i=0,len=navAnchor.length;i<len;i++) {
-			if ($(window).scrollLeft() > navAnchor[i]-10) {
+			if ($(window).scrollLeft() > navAnchor[i]-20) {
 				window.currentGroup = i
 			}
 		}

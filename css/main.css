@@ -204,6 +204,23 @@ h2 {
 #nav5:hover {
 	background: rgb(0, 153, 76);
 }
+.arrow {
+	transition: 0.5s all ease-in-out;
+}
+#arrowRight {
+	left: 90vw;
+	top: 40vh;
+	position: fixed;
+	cursor: pointer;
+	z-index: 1;
+}
+#arrowLeft {
+	left: 1vw;
+	top: 40vh;
+	position: fixed;
+	cursor: pointer;
+	z-index: 1;
+}
 /* SVGs */
 #background {
 	background: url(../img/background.svg);
@@ -242,31 +259,4 @@ h2 {
 }
 #logo:hover path {
 	fill: #0086CD;
-}
-#svg_arrowRight {
-	background: url(../img/arrowRight.svg);
-	left: 90vw;
-	width: 80px;
-	height: 100px;
-	top: 40vh;
-	position: fixed;
-	cursor: pointer;
-	z-index: 10;
-}
-#svg_arrowLeft {
-	background: url(../img/arrowLeft.svg);
-	left: 1vw;
-	width: 80px;
-	height: 100px;
-	top: 40vh;
-	position: fixed;
-	cursor: pointer;
-	display: none;
-	z-index: 10;
-}
-#svg_arrowLeft:hover {
-	background: url(../img/arrowLeft_hover.svg);
-}
-#svg_arrowRight:hover {
-	background: url(../img/arrowRight_hover.svg);
 }
