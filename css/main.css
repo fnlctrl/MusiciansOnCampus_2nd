@@ -19,6 +19,7 @@ h2 {
 .page {
 	float: left;
 	display: inline-block;
+	z-index: -1;
 }
 .pageContent {
 	float: left;
@@ -53,6 +54,10 @@ h2 {
 	-webkit-column-width:300px; /* Safari and Chrome */
 	column-width:300px;
 	transition: 0.1s all ease-out;
+	z-index: -1;
+}
+.svg {
+	position: relative;
 }
 /* Content */
 #intro1 {
@@ -75,7 +80,7 @@ h2 {
 	display:inline-block;
 	position: relative;
 	overflow: hidden;
-	z-index: 0;
+	z-index: 1;
 }
 #ending {
 	width: 400px;
@@ -90,52 +95,58 @@ h2 {
 	margin: 0 0 0 -125px;
 	position: fixed;
 	z-index: 10;
+	transition: 0.5s all ease;
 }
 #playerControls {
 	margin-top: 5.5%;
 	left: 30px;
 	position: relative;
-	z-index: 2;
+	z-index: 4;
+}
+#playerControls img {
+	position: relative;
+	height: 25px;
 }
 #playerPlayPause {
-	background: url(../img/playerControls.svg) -20px -1px no-repeat;
+	float: left;
 	width: 20px;
-	height: 25px;
+	height: 22px;
+	overflow: hidden;
 	cursor: pointer;
-	position: absolute;
 	z-index: 3;
 }
 #playerNext {
-	background: url(../img/playerControls.svg) -40px no-repeat;
+	float: left;
 	width: 20px;
-	height: 25px;
-	margin: 0 0 0 25px;
+	height: 22px;
+	margin: 0 0 0 5px;
+	overflow: hidden;
 	cursor: pointer;
-	position: absolute;
 	z-index: 3;
 }
 #playerMute {
-	background: url(../img/playerControls.svg) -60px -1px no-repeat;
-	width: 20px;
-	height: 25px;
-	margin: 0 0 0 170px;
-	position: absolute;
+	float: left;
+	margin: 0 0 0 10px;
+	width: 19px;
+	height: 23px;
+	overflow: hidden;
 	cursor: pointer;
 	z-index: 3;
 }
 #playerSongName {
+	float: left;
 	width: 100px;
-	margin: 0 0 0 60px;
+	margin: 0 0 0 10px;
 	color: #E3087B;
 	position: relative;
 	z-index: 3;
 }
 #playerOutline {
-	position: fixed;
+	position: absolute;
 	z-index: 1;
 }
 #playerBackground {
-	position: fixed;
+	position: absolute;
 	z-index: -1;
 }
 /* Nav */
@@ -144,6 +155,8 @@ h2 {
 	z-index: 10;
 	left: 50%;
 	margin: 0 0 0 -110px;
+	bottom: 20px;
+	z-index: 2;
 }
 .nav {
 	float: left;

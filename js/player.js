@@ -1,17 +1,17 @@
-$(window).bind('load resize scroll', function() {
+$(window).bind('resize scroll', function() {
 	if (document.getElementById('audio').paused == true) {
 		window.playing = false
-		$('#playerPlayPause').css('background','url(./img/playerControls.svg)')
+		$('#playerPlayPause').find('svg').css('left','0')
 	}
 	else {
 		window.playing = true
-		$('#playerPlayPause').css('background','url(./img/playerControls.svg) -20px -1px')
+		$('#playerPlayPause').find('svg').css('left','-19px')
 	}
 })
 $(document).ready(function() {
 	window.currentTrack = 0
 	document.getElementById('audio').volume = 0.2
-	
+	window.playing = true
 	window.mp3=[]
 	window.musicTitle=[]
 	mp3[0] = "./mp3/最初的梦想.mp3"
@@ -24,22 +24,22 @@ $(document).ready(function() {
 		if (playing == true) {
 			document.getElementById('audio').pause()
 			playing = false
-			$(this).css('background','url(./img/playerControls.svg)')
+			$('#playerPlayPause').find('.svg').css('left','0')
 		}
 		else {
 			document.getElementById('audio').play()
 			playing = true
-			$(this).css('background','url(./img/playerControls.svg) -20px -1px')
+			$('#playerPlayPause').find('.svg').css('left','-19px')
 		}
 	})
 	$('#playerMute').click(function() {
 		if (document.getElementById('audio').muted == false) {
 			document.getElementById('audio').muted = true
-			$(this).css('background','url(./img/playerControls.svg) -80px -1px')
+			$(this).find('.svg').css('left','-81px')
 		}
 		else {
 			document.getElementById('audio').muted = false
-			$(this).css('background','url(./img/playerControls.svg) -60px -1px')
+			$(this).find('.svg').css('left','-61px')
 		}
 	})
 	$('#playerNext').click(function() {
