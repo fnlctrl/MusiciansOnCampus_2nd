@@ -86,6 +86,33 @@ $(document).ready(function() {
 				$(this).css('background-color','')
 			}
 		})
+		//Change color of arrow according to current group
+		$('.arrow').each(function() {
+			if (window.currentGroup == 0) {
+				$(this).find('path').css('fill','#E6067C')
+				$(this).find('polygon').css('fill','#FFF')
+			}
+			else if (window.currentGroup == 1) {
+				$(this).find('path').css('fill','#2980B9')
+				$(this).find('polygon').css('fill','#FFF')
+			}
+			else if (window.currentGroup == 2) {
+				$(this).find('path').css('fill','#39B54A')
+				$(this).find('polygon').css('fill','#FFF')
+			}
+			else if (window.currentGroup == 3) {
+				$(this).find('path').css('fill','#EA2E49')
+				$(this).find('polygon').css('fill','#FFF')
+			}
+			else if (window.currentGroup == 4) {
+				$(this).find('path').css('fill','#C24704')
+				$(this).find('polygon').css('fill','#FFF')
+			}
+			else if (window.currentGroup == 5) {
+				$(this).find('path').css('fill','#00994C')
+				$(this).find('polygon').css('fill','#FFF')
+			}
+		})
 		//switch background music according to current group
 		if (window.currentGroup==0){
 			if (window.currentTrack!=0) {
