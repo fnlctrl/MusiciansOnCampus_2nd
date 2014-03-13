@@ -1,9 +1,6 @@
 /* Main */
 * {
 	overflow: visible;
-	-moz-transform-origin: 0 0; /* Firefox */
-	-webkit-transform-origin: 0 0; /* Safari and Chrome */
-	transform-origin: 0 0;
 }
 body {
 	min-height: 600px;
@@ -169,40 +166,40 @@ h2 {
 	transition: all 0.1s ease-in-out;
 }
 #nav0 {
-	border-color: rgb(230, 6, 124);
+	border-color: #E6067C;
 }
 #nav0:hover {
-	background: rgb(230, 6, 124);
+	background: #E6067C;
 }
 #nav1 {
-	border-color: rgb(41, 128, 185);
+	border-color: #2980B9;
 }
 #nav1:hover {
-	background: rgb(41, 128, 185);
+	background: #2980B9;
 }
 #nav2 {
-	border-color: rgb(57, 181, 74);
+	border-color: #39B54A;
 }
 #nav2:hover {
-	background: rgb(57, 181, 74);
+	background: #39B54A;
 }
 #nav3 {
-	border-color: rgb(234, 46, 73);
+	border-color: #EA2E49;
 }
 #nav3:hover {
-	background: rgb(234, 46, 73);
+	background: #EA2E49;
 }
 #nav4 {
-	border-color: rgb(194, 71, 4);
+	border-color: #C24704;
 }
 #nav4:hover {
-	background: rgb(194, 71, 4);
+	background: #C24704;
 }
 #nav5 {
-	border-color: rgb(0, 153, 76);
+	border-color: #00994C;
 }
 #nav5:hover {
-	background: rgb(0, 153, 76);
+	background: #00994C;
 }
 .arrow {
 	transition: 0.5s all ease-in-out;

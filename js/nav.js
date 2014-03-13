@@ -1,19 +1,19 @@
 $(window).bind('load resize scroll',function() {
-	//是否显示左箭头
+	//Show or hide left arrow
 	if ($(window).scrollLeft() > window.w-10 ) {
 		$('#arrowLeft').show()
 	}
 	else {
 		$('#arrowLeft').hide()
 	}
-	//是否显示左右箭头
+	//Show or hide right arrow
 	if ($(window).scrollLeft() < $('body').width() - 2000 ) {
 		$('#arrowRight').show()
 	}
 	else {
 		$('#arrowRight').hide()
 	}
-	//左右箭头换颜色
+	//Change color of arrow according to current group
 	$('.arrow').each(function() {
 		if (window.currentGroup == 0) {
 			$(this).find('path').css('fill','#E6067C')
@@ -42,7 +42,7 @@ $(window).bind('load resize scroll',function() {
 	})
 })
 $(window).bind('load',function() {
-	//左右方向按钮
+	//Scroll left or right by clicking arrows
 	$('#arrowRight').click(function() {
 		$('html,body').animate({scrollLeft:anchor[currentPage+1]},500)
 		if (currentPage < anchor.length-1) {
@@ -55,12 +55,12 @@ $(window).bind('load',function() {
 		currentPage --
 	//	console.log(window.currentPage)
 	})
-	//导航栏按钮
+	//Fast navigate to groups
 	$('.nav').click(function() {
 		var destination = $(this).attr('data')
 		$('html,body').animate({scrollLeft:navAnchor[destination]},500)
 	})
-	//左右箭头变色
+	//Hightlight arrows on hover
 	$('.arrow')
 	.mouseenter(function() {
 		var color = $(this).find('path').css('fill')

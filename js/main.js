@@ -28,7 +28,7 @@ $(document).ready(function() {
 		}, 'xml');
 	});
 	$(window).bind('load resize scroll',function() {
-		//自适应宽高
+		//Set width and height
 		window.h = $(window).height()
 		window.w = $(window).width()
 		$('.page').height(h)
@@ -42,7 +42,7 @@ $(document).ready(function() {
 			bodyWidth += $(this).outerWidth()
 		})
 		$('body').width(bodyWidth+10)
-		//播放器移动
+		//Move player according to how much the page is scrolled
 		var playerInitialTop = parseInt($('#titleImage').css('top')) + 393
 		var playerTopDelta = $(window).scrollLeft() / 2.5
 		$('#player').css('top',playerInitialTop)
@@ -55,7 +55,7 @@ $(document).ready(function() {
 		else {
 			$("#player").css('top',window.h-110)
 		}
-		//检测页面位置
+		//detect current page and group
 		window.anchor = []
 		window.navAnchor = []
 		anchor[0]=0
@@ -76,17 +76,17 @@ $(document).ready(function() {
 				window.currentGroup = i
 			}
 		}
-		//检测导航栏当前值
+		//Set background color of nav according to current group
 		$('.nav').each(function() {
 			if ( window.currentGroup == $(this).attr('data') ) {
-				var rgb = $(this).css('border-top-color').match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-				$(this).css('background-color','rgb('+rgb[1]+','+rgb[2]+','+rgb[3]+')')
+				var color = $(this).css('border-top-color')
+				$(this).css('background-color',color)
 			}
 			else {
 				$(this).css('background-color','')
 			}
 		})
-		//切换BGM
+		//switch background music according to current group
 		if (window.currentGroup==0){
 			if (window.currentTrack!=0) {
 				$('#audio').animate({volume:0},1000)	
@@ -94,10 +94,10 @@ $(document).ready(function() {
 				document.getElementById('audio').play()
 				$('#audio').animate({volume:0.2},1000)
 				window.currentTrack=0
-				$('#playerSongName').text(window.musicTitle[currentTrack])
-				$('#player').find('path').css('fill','#E3087B')
-				$('#playerSongName').css('color','#E3087B')
 			}
+			$('#playerSongName').text(window.musicTitle[currentTrack])
+			$('#player').find('path').css('fill','#E3087B')
+			$('#playerSongName').css('color','#E3087B')
 		}
 		else if (window.currentGroup==1) {
 			if (window.currentTrack!=1) {
@@ -106,10 +106,10 @@ $(document).ready(function() {
 				document.getElementById('audio').play()
 				$('#audio').animate({volume:0.2},1000)
 				window.currentTrack=1
-				$('#playerSongName').text(window.musicTitle[currentTrack])
-				$('#player').find('path').css('fill','#2980B9')
-				$('#playerSongName').css('color','#2980B9')
 			}
+			$('#playerSongName').text(window.musicTitle[currentTrack])
+			$('#player').find('path').css('fill','#2980B9')
+			$('#playerSongName').css('color','#2980B9')
 		}
 		else if (window.currentGroup==4) {
 			if (window.currentTrack!=2) {
@@ -118,13 +118,13 @@ $(document).ready(function() {
 				document.getElementById('audio').play()
 				$('#audio').animate({volume:0.2},1000)
 				window.currentTrack=2
-				$('#playerSongName').text(window.musicTitle[currentTrack])
-				$('#player').find('path').css('fill','#C24704')
-				$('#playerSongName').css('color','#C24704')
 			}
+			$('#playerSongName').text(window.musicTitle[currentTrack])
+			$('#player').find('path').css('fill','#C24704')
+			$('#playerSongName').css('color','#C24704')
 		}
 	})
-	//加载动画
+	//Animation at first page load
 	$(window).bind('load',function() {
 		$('#background').width(0)
 		function pageInit() {
