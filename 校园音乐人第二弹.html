@@ -4,9 +4,9 @@
 		<meta charset='UTF-8'>
 		<title>专题:校园音乐人 第二弹 - 水朝夕</title>
 		<script src='./js/jquery-2.1.0.min.js'></script>
-		<script src='./js/player.js'></script>
 		<script src='./js/main.js'></script>
 		<script src='./js/nav.js'></script>
+		<script src='./js/player.js'></script>
 		<link rel='stylesheet' href='./css/main.css'/>
 	</head>
 	<body>
@@ -18,22 +18,23 @@
 			<div id='nav3' class='nav' data='3'></div>
 			<div id='nav4' class='nav' data='4'></div>
 			<div id='nav5' class='nav' data='5'></div>
-			<img id='arrowLeft' class='svg arrow' src='./img/arrowLeft.svg'></img>
-			<img id='arrowRight' class='svg arrow' src='./img/arrowRight.svg'></img>
+			<img id='arrowLeft' class='svg arrow scaleBig' src='./img/arrowLeft.svg'/>
+			<img id='arrowRight' class='svg arrow scaleBig' src='./img/arrowRight.svg'/>
 		</div>
 		<div id='page0' class='page'>
 			<div id='background'></div>
 			<div id='titleImage'>
-				<img id='title' class='svg' src='./img/title.svg'/>
+				<img id='title' class='svg scale' src='./img/title.svg'/>
 				<img id='stripes' class='svg' src='./img/stripes.svg'/>
+				<img id='titleDecoration' class='svg scale' src='./img/titleDecoration.svg'/>
 				<div id='player'>
 					<img id='playerOutline' class='svg' src='./img/playerOutline.svg'/>
 					<img id='playerBackground' class='svg' src='./img/playerBackground.svg'/>
 					<div id='playerControls'>
-						<div id='playerPlayPause'><img class='svg' src='./img/playerControls.svg' style='left:-19px'></img></div>	
-						<div id='playerNext'><img class='svg' src='./img/playerControls.svg' style='left:-39px'></img></div>
+						<div id='playerPlayPause'><img class='svg' src='./img/playerControls.svg' style='left:-19px'/></div>	
+						<div id='playerNext'><img class='svg' src='./img/playerControls.svg' style='left:-39px'/></div>
 						<div id='playerSongName'>最初的梦想</div>
-						<div id='playerMute'><img class='svg' src='./img/playerControls.svg' style='left:-61px'></img></div>
+						<div id='playerMute'><img class='svg' src='./img/playerControls.svg' style='left:-61px'/></div>
 						<audio id='audio' src='./mp3/最初的梦想.mp3' autoplay></audio>
 					</div>
 				</div>
@@ -447,5 +448,6 @@
 				<p>　　大狗志</p>
 			</div>
 		</div>
+
 	</body>
 </html>

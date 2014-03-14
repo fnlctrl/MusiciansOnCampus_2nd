@@ -11,7 +11,7 @@ body {
 	opacity: 0
 }
 h2 {
-	font-family: 'Microsoft Yahei';
+	font-family: 'Microsoft YaHei';
 }
 .page {
 	float: left;
@@ -21,7 +21,7 @@ h2 {
 .pageContent {
 	float: left;
 	display: inline-block;
-	padding: 5vh 5vh 5vh 100px;
+	padding: 5vh 5vh 5vh 80px;
 	position: relative;
 }
 .info {
@@ -36,7 +36,7 @@ h2 {
 	width: 400px;
 	font-size: 18px;
 	word-wrap: break-word;
-	padding: 10vh 10vh 10vh 150px;
+	padding: 10vh 10vh 10vh 100px;
 	z-index: -1;
 }
 .article {
@@ -55,6 +55,21 @@ h2 {
 }
 .svg {
 	position: relative;
+	transition: all 0.2s ease;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+.scale:hover {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	transform: scale(1.1);
+}
+.scaleBig:hover {
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	transform: scale(1.5);
 }
 /* Content */
 #intro1 {
@@ -84,6 +99,31 @@ h2 {
 	background: url(../img/background.svg);
 	overflow: hidden;
 }
+#titleImage {
+	width: 660px;
+	height: 500px;
+	left: 50%;
+	margin: 0 0 0 -330px;
+	top: 10%;
+	position: absolute;
+	z-index: 0;
+}
+#titleDecoration {
+	z-index: -10;
+}
+.stripesPath {
+	stroke-dasharray: 1210;
+	stroke-dashoffset: 1210;
+	-webkit-animation: dash 3s linear 0s 1 normal forwards;
+}
+@-webkit-keyframes dash {
+	from {
+		stroke-dashoffset: 1210;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
 /* Player */
 #player {
 	width: 250px;
@@ -98,7 +138,7 @@ h2 {
 	margin-top: 5.5%;
 	left: 30px;
 	position: relative;
-	z-index: 4;
+	z-index: 10;
 }
 #playerControls img {
 	position: relative;
@@ -110,7 +150,7 @@ h2 {
 	height: 22px;
 	overflow: hidden;
 	cursor: pointer;
-	z-index: 3;
+	z-index: 10;
 }
 #playerNext {
 	float: left;
@@ -119,7 +159,7 @@ h2 {
 	margin: 0 0 0 5px;
 	overflow: hidden;
 	cursor: pointer;
-	z-index: 3;
+	z-index: 10;
 }
 #playerMute {
 	float: left;
@@ -128,7 +168,7 @@ h2 {
 	height: 23px;
 	overflow: hidden;
 	cursor: pointer;
-	z-index: 3;
+	z-index: 10;
 }
 #playerSongName {
 	float: left;
@@ -136,17 +176,17 @@ h2 {
 	margin: 0 0 0 10px;
 	color: #E3087B;
 	position: relative;
-	z-index: 3;
+	z-index: 10;
 }
 #playerOutline {
 	position: absolute;
-	z-index: 1;
+	z-index: 9;
 }
 #playerBackground {
 	position: absolute;
-	z-index: -1;
+	z-index: 8;
 }
-/* Nav */
+/* Navigation */
 #navContainer {
 	position: fixed;
 	z-index: 10;
@@ -164,6 +204,11 @@ h2 {
 	border-radius: 1000px;
 	border: solid 4px;
 	transition: all 0.1s ease-in-out;
+}
+.nav:hover {
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	transform: scale(1.2);
 }
 #nav0 {
 	border-color: #E6067C;
@@ -223,17 +268,7 @@ h2 {
 	background: url(../img/background.svg);
 	top: 0;
 	position: absolute;
-	z-index: -3
-}
-#titleImage {
-	background: url(../img/titleImage.svg);
-	width: 660px;
-	height: 500px;
-	left: 50%;
-	margin: 0 0 0 -330px;
-	top: 10%;
-	position: absolute;
-	z-index: 0;
+	z-index: -3;
 }
 #title {
 	top: 30%;
@@ -243,8 +278,8 @@ h2 {
 	z-index: -1;
 }
 #stripes {
-	top: -190px;
-	left: 180px;
+	top: -188px;
+	left: 181px;
 	position: absolute;
 	z-index: -2;
 }

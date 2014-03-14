@@ -2,10 +2,11 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="80px" height="100px" viewBox="0 0 80 100" enable-background="new 0 0 80 100" xml:space="preserve">
+	 width="60px" height="75px" viewBox="10 12.5 60 75" enable-background="new 10 12.5 60 75" xml:space="preserve">
 <g>
-	<polygon fill="#FFFFFF" points="77.768,17.551 31.957,51.631 77.602,85.993 66.313,97.996 2.461,50.221 63.465,2.038 	"/>
-	<path fill="#518FFE" d="M66.138,95.992L4.922,50.189L63.305,4.077l12.23,13.266L32.67,49.232l-3.216,2.393l3.202,2.411
-		l42.705,32.147L66.138,95.992 M66.486,100l13.354-14.199l-45.38-34.162L80,17.76L63.625,0L0,50.253L66.486,100L66.486,100z"/>
+	<polygon fill="#FFFFFF" points="12.461,50.158 57.558,14.539 67.768,25.612 33.342,51.222 67.642,77.042 59.69,85.496 	"/>
+	<path fill="#518FFE" d="M57.397,16.577l8.138,8.826l-31.48,23.418l-3.216,2.393l3.203,2.411l31.361,23.609l-5.886,6.258
+		L14.921,50.125L57.397,16.577 M57.719,12.5L10,50.19L59.865,87.5l10.016-10.649L35.846,51.229L70,25.82L57.719,12.5L57.719,12.5z"
+		/>
 </g>
 </svg>
