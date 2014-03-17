@@ -1,4 +1,4 @@
-$(window).bind('resize scroll', function() {
+$(window).bind('load resize scroll', function() {
 	if (document.getElementById('audio').paused == true) {
 		window.playing = false
 		$('#playerPlayPause').find('svg').css('left','0')
@@ -6,6 +6,43 @@ $(window).bind('resize scroll', function() {
 	else {
 		window.playing = true
 		$('#playerPlayPause').find('svg').css('left','-19px')
+	}
+	//Switch background music according to current group
+	if (window.currentGroup==0){
+		if (window.currentTrack!=0) {
+			$('#audio').animate({volume:0},1000)	
+			$('#audio').prop('src','./mp3/最初的梦想.mp3')
+			document.getElementById('audio').play()
+			$('#audio').animate({volume:0.2},1000)
+			window.currentTrack=0
+		}
+		$('#playerSongName').text(window.musicTitle[currentTrack])
+		$('#player').find('path').css('fill','#E3087B')
+		$('#playerSongName').css('color','#E3087B')
+	}
+	else if (window.currentGroup==1) {
+		if (window.currentTrack!=1) {
+			$('#audio').animate({volume:0},1000)
+			$('#audio').prop('src','./mp3/无赖.mp3')
+			document.getElementById('audio').play()
+			$('#audio').animate({volume:0.2},1000)
+			window.currentTrack=1
+		}
+		$('#playerSongName').text(window.musicTitle[currentTrack])
+		$('#player').find('path').css('fill','#2980B9')
+		$('#playerSongName').css('color','#2980B9')
+	}
+	else if (window.currentGroup==4) {
+		if (window.currentTrack!=2) {
+			$('#audio').animate({volume:0},1000)
+			$('#audio').prop('src','./mp3/Spark.mp3')
+			document.getElementById('audio').play()
+			$('#audio').animate({volume:0.2},1000)
+			window.currentTrack=2
+		}
+		$('#playerSongName').text(window.musicTitle[currentTrack])
+		$('#player').find('path').css('fill','#C24704')
+		$('#playerSongName').css('color','#C24704')
 	}
 })
 $(document).ready(function() {
